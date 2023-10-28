@@ -115,7 +115,7 @@
                 </button>
                 <button
                   :disabled="selected.some((e) => e.id === actor.id)"
-                  class="danger-color"
+                  class="btn-sm"
                   type="reset"
                   @click="removeActor"
                 >

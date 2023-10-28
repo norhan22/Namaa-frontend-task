@@ -6,7 +6,7 @@
     </div>
     <div class="">
       <!--  ////////////////////////////////
-     // Editable Table
+     // Actors Table
       /////////////////////////-->
       <table border="0" cellpadding="10" cellspacing="2" width="100%">
         <thead>
@@ -40,11 +40,7 @@
                 >
                   Edit
                 </button>
-                <button
-                  class="danger-color"
-                  type="reset"
-                  @click="removeMovie(i)"
-                >
+                <button class="btn-sm" type="reset" @click="removeMovie(i)">
                   Delete
                 </button>
               </div>
