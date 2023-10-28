@@ -2,7 +2,7 @@
   <div>
     <div class="flex-between">
       <p v-html="title"></p>
-      <nav class="py-0">
+      <nav v-if="!withoutActions" class="py-0">
         <a href="#!" @click="addNewActor">Add Actor</a>
       </nav>
     </div>
@@ -14,7 +14,7 @@
         <thead>
           <!--  ///////////// Header ///////////// -->
           <tr>
-            <th align="center" class="checkboxCol">
+            <th v-if="!withoutActions" align="center" class="checkboxCol">
               <input
                 v-model="selectAll"
                 :value="false"
@@ -26,10 +26,10 @@
             <th>age</th>
             <th>join date</th>
             <th>actor’s role</th>
-            <th>actions</th>
+            <th v-if="!withoutActions">actions</th>
           </tr>
           <!--  ///////////// Editable Form ///////////// -->
-          <tr v-if="formMode" class="form-row">
+          <tr v-if="formMode && !withoutActions" class="form-row">
             <th class="empty"></th>
             <th>
               <Field
@@ -90,7 +90,7 @@
         </thead>
         <tbody>
           <tr v-for="(actor, i) in actors" :key="i">
-            <td align="center" class="p-0">
+            <td v-if="!withoutActions" align="center" class="p-0">
               <input
                 v-model="selected"
                 :name="`actor_${i}`"
@@ -103,7 +103,7 @@
             <td>{{ actor.age }}</td>
             <td>{{ actor.joinDate }}</td>
             <td>{{ actor.actorRole }}</td>
-            <td>
+            <td v-if="!withoutActions">
               <div class="flex-between">
                 <button
                   :disabled="selected.some((e) => e.id === actor.id)"
@@ -148,6 +148,10 @@ export default {
     selectedActors: {
       type: Array,
       default: () => [],
+    },
+    withoutActions: {
+      type: Boolean,
+      default: false,
     },
   },
   components: {

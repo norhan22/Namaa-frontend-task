@@ -32,5 +32,14 @@ export default {
         title: "Movies",
       },
     },
+    {
+      path: "/show/:id",
+      name: "Show_Movie",
+      component: () =>
+        import(/* webpackChunkName: "about" */ pagesPath + "/Show.vue"),
+      meta: {
+        title: "Movies",
+      },
+    },
   ],
 };
