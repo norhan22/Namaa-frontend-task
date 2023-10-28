@@ -115,6 +115,11 @@ input, textarea {
   //border-radius: 5px;
   padding: 7px 0;
   //margin-inline: 4px 3px;
+  &:focus {
+    outline: 0;
+    border-bottom-width: 2px;
+    border-color: $primary;
+  }
 }
 
 .error-msg {
@@ -162,3 +167,7 @@ form.editableTable {
 .pt-0 {
   padding-top: 0 !important;
 }
+
+/////////////////////////////////////
+// card
+

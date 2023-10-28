@@ -1,7 +1,7 @@
 <template>
   <div>
     <h3>Add New Movie</h3>
-    <movieForm />
+    <movieForm @submit="submit" />
   </div>
 </template>
 
@@ -11,6 +11,12 @@ import movieForm from "@/views/movies/components/MovieForm.vue";
 export default {
   name: "CreateMovie",
   components: { movieForm },
+  methods: {
+    submit(newData) {
+      this.addRow(this.movies, newData, "storeMovie");
+      this.goTo("List_Movies");
+    },
+  },
 };
 </script>
 

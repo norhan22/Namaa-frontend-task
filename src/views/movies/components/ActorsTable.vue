@@ -145,6 +145,10 @@ export default {
       type: String,
       default: "Actors",
     },
+    selectedActors: {
+      type: Array,
+      default: () => [],
+    },
   },
   components: {
     Form,
@@ -226,13 +230,15 @@ export default {
     },
     addNewActor() {
       this.resetForm();
-      this.formMode = true;
-      this.createMode = true;
+      this.formMode = !this.formMode;
     },
     resetForm() {
       this.form = JSON.parse(JSON.stringify(initObj));
       this.formMode = false;
     },
+  },
+  created() {
+    if (this.selectedActors.length) this.selected = this.selectedActors;
   },
 };
 </script>

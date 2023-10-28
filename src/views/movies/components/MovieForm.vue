@@ -1,5 +1,5 @@
 <template>
-  <Form @submit.prevent="submit">
+  <Form>
     <!--   Tile   -->
     <div class="form-row">
       <label for="title">Title <sup class="danger-color">*</sup></label>
@@ -28,6 +28,7 @@
         step="1"
         type="number"
       />
+
       <ErrorMessage class="error-msg" name="year" />
     </div>
     <!--   Actors   -->
@@ -41,7 +42,7 @@
     </div>
     <div class="flex-between">
       <button type="reset" @click="$router.back()">back</button>
-      <button :disabled="notValid" type="submit">submit</button>
+      <button :disabled="notValid" type="submit" @click="submit">submit</button>
     </div>
   </Form>
 </template>
@@ -56,6 +57,12 @@ export default {
     Field,
     ErrorMessage,
     actorsTable,
+  },
+  props: {
+    movie: {
+      type: Object,
+      default: () => {},
+    },
   },
   data() {
     return {
@@ -74,7 +81,12 @@ export default {
     },
   },
   methods: {
-    submit() {},
+    submit() {
+      this.$emit("submit", this.form);
+    },
+  },
+  created() {
+    if (this.movie?.id) this.form = this.movie;
   },
 };
 </script>

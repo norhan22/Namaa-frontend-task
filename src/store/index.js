@@ -18,7 +18,7 @@ export default createStore({
     },
   },
   mutations: {
-    storeMovies(state, data) {
+    storeMovie(state, data) {
       state.movies = data;
       setData("movies", data);
     },
@@ -27,6 +27,23 @@ export default createStore({
       setData("actors", data);
     },
   },
-  actions: {},
+  actions: {
+    /* //////////////////////////////////////////////
+    * Users Actions: Add / Update / Remove Data
+   //////////////////////////////////////////////*/
+    addRow({ commit }, { arr, newData, commitName }) {
+      arr.unshift({ id: arr.length + 1, ...newData });
+      commit(commitName, arr);
+    },
+    updateRow({ commit }, { arr, itemIndex, newData, commitName }) {
+      arr[itemIndex] = newData;
+      commit(commitName, arr);
+    },
+
+    removeRow({ commit }, { arr, itemIndex, commitName }) {
+      arr.splice(itemIndex, 1);
+      commit(commitName, arr);
+    },
+  },
   modules: {},
 });

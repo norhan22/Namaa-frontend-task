@@ -15,7 +15,7 @@ export default {
       },
     },
     {
-      path: "/create",
+      path: "create",
       name: "Create_Movie",
       component: () =>
         import(/* webpackChunkName: "about" */ pagesPath + "/Create.vue"),

@@ -25,18 +25,20 @@ export default {
      * Add / Update / Remove Data
     //////////////////////////////////////*/
     addRow(arr, newData, commitName) {
-      arr.unshift({ id: arr.length + 1, ...newData });
-      this.$store.commit(commitName, arr);
+      this.$store.dispatch("addRow", { arr, newData, commitName });
     },
     updateRow({ arr, itemIndex, newData, commitName }) {
-      arr[itemIndex] = newData;
-      this.$store.commit(commitName, arr);
+      this.$store.dispatch("updateRow", {
+        arr,
+        itemIndex,
+        newData,
+        commitName,
+      });
     },
 
     removeRow(arr, itemIndex, commitName) {
       if (confirm("Are you sure to take this action?")) {
-        arr.splice(itemIndex, 1);
-        this.$store.commit(commitName, arr);
+        this.$store.dispatch("removeRow", { arr, itemIndex, commitName });
       }
     },
   },
