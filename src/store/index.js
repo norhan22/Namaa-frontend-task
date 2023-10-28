@@ -18,11 +18,11 @@ export default createStore({
     },
   },
   mutations: {
-    storeMovie(data, state) {
+    storeMovies(state, data) {
       state.movies = data;
       setData("movies", data);
     },
-    storeActor(data, state) {
+    storeActors(state, data) {
       state.actors = data;
       setData("actors", data);
     },
