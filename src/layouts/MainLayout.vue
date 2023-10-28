@@ -17,11 +17,9 @@
     </nav>
   </header>
   <main>
-    <router-view v-slot="{ Component }">
-      <transition>
-        <component :is="Component" />
-      </transition>
-    </router-view>
+    <transition>
+      <router-view />
+    </transition>
   </main>
   <footer>
     <p>Copyright © {{ new Date().getFullYear() }} {{ appName }}</p>

@@ -8,14 +8,4 @@ $primary: #42b983;
 @import "header";
 @import "home";
 @import "helpers";
-//////////////////////////////////
-// Transitions
-.v-enter-active,
-.v-leave-active {
-  transition: opacity 0.5s ease;
-}
-
-.v-enter-from,
-.v-leave-to {
-  opacity: 0;
-}
+@import "transitions";

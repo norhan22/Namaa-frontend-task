@@ -5,4 +5,6 @@ import store from "./store";
 import "./assets/style/main.scss";
 
 import helpers from "./mixins/helpers";
+import "../veeValidation.config";
+
 createApp(App).use(store).use(router).mixin(helpers).mount("#app");
