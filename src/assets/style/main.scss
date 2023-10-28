@@ -1,0 +1,21 @@
+///////////////////////////////////////
+// Variables
+$dark: #2c3e50;
+$primary: #42b983;
+///////////////////////////////////////
+// Assets
+@import "basic";
+@import "header";
+@import "home";
+@import "helpers";
+//////////////////////////////////
+// Transitions
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}

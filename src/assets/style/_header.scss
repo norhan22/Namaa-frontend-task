@@ -1,0 +1,27 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .header-brand {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+
+    p {
+      margin-inline: 10px;
+    }
+  }
+
+  @media (max-width: 770px) {
+    & {
+      flex-flow: column;
+      justify-content: center;
+      
+
+      nav {
+        padding-top: 10px;
+      }
+    }
+  }
+}
