@@ -1,17 +1,24 @@
 <template>
   <div>
-    <h2>Here movies</h2>
+    <div class="flex-between">
+      <h3>Movies List</h3>
+      <button class="mb-0" @click="goTo('Create_Movie')">Add Movie</button>
+    </div>
+    <div class="">
+      <TransitionGroup name="slide-fade" tag="ul">
+        <li v-for="(movie, i) in movies" :key="i" class="card">
+          {{ movie }}
+        </li>
+      </TransitionGroup>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "HelloWorld",
-  props: {
-    msg: String,
-  },
+  name: "MoviesList",
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss"></style>
+<style lang="scss" scoped></style>
