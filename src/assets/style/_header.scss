@@ -1,7 +1,5 @@
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @extend .flex-between;
 
   .header-brand {
     display: flex;
@@ -15,10 +13,7 @@ header {
 
   @media (max-width: 770px) {
     & {
-      flex-flow: column;
-      justify-content: center;
-      
-
+    
       nav {
         padding-top: 10px;
       }

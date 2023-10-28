@@ -1,3 +1,13 @@
+/////////////////////////////
+// Colors
+
+.danger-color {
+  color: red;
+}
+
+// ///////////////////////
+// Button
+
 button {
   padding: 8px 23px;
   background: $primary;
@@ -7,17 +17,148 @@ button {
   border-radius: 5px;
   filter: drop-shadow(2px 5px 5px #ccc);
   cursor: pointer;
+  text-transform: capitalize;
+  margin-bottom: 10px;
+
 
   &[disabled] {
     cursor: not-allowed;
+    opacity: .6;
   }
 
   &:hover {
     opacity: 0.7;
   }
+
+  &[type=reset] {
+    background: transparent;
+    color: $dark;
+    border: 1px solid $primary;
+  }
+
+  &.btn-sm {
+    padding: 5px 10px;
+  }
+
+  + button {
+    margin-left: 6px;
+    @media (max-width: 440px) {
+      & {
+        margin-left: inherit;
+
+      }
+    }
+  }
 }
 
 /////////////////////////////
+// Logo
+
 .logo {
   filter: drop-shadow(2px 5px 3px #aaa);
+}
+
+/////////////////////////////////////
+// Flex
+
+.flex-between {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @media (max-width: 440px) {
+    & {
+      flex-flow: column;
+      justify-content: center;
+    }
+  }
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/////////////////////////////////////
+// title
+
+.title {
+  color: $primary;
+}
+
+/////////////////////////////////////
+// form
+.form-row {
+  margin-bottom: 20px;
+
+  > th {
+    padding: 5px;
+
+    input, textarea, select {
+      width: 80%;
+    }
+  }
+}
+
+label {
+  text-transform: capitalize;
+  display: block;
+}
+
+input, textarea {
+  display: block;
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid #ccc;
+  //border-width: 0 0 1px 0;
+  //border-radius: 5px;
+  padding: 7px 0;
+  //margin-inline: 4px 3px;
+}
+
+.error-msg {
+  //text-transform: capitalize;
+  font-size: .95rem;
+  font-weight: normal !important;
+  display: block;
+
+  @extend .danger-color;
+
+}
+
+form.editableTable {
+  max-width: 100%;
+  overflow: scroll;
+}
+
+////////////////////////////////
+// Spacing
+
+.my-0 {
+  margin-block: 0 !important;
+}
+
+.mb-0 {
+  margin-bottom: 0 !important;
+}
+
+.m-auto {
+  margin: auto !important;
+}
+
+.mt-0 {
+  margin-top: 0 !important;
+}
+
+.py-0 {
+  padding-block: 0 !important;
+}
+
+.pb-0 {
+  padding-bottom: 0 !important;
+}
+
+.pt-0 {
+  padding-top: 0 !important;
 }
