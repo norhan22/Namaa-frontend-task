@@ -78,10 +78,28 @@ button {
   }
 }
 
+.flex-around {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  @media (max-width: 440px) {
+    & {
+      flex-flow: column;
+      justify-content: center;
+    }
+  }
+}
+
 .flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 /////////////////////////////////////
@@ -96,12 +114,19 @@ button {
 .form-row {
   margin-bottom: 20px;
 
+
   > th {
     padding: 5px;
 
     input, textarea, select {
       width: 80%;
     }
+  }
+}
+
+.flex .form-row {
+  @media (min-width: 770px) {
+    margin-right: 20px;
   }
 }
 
@@ -139,6 +164,14 @@ input, textarea {
 form.editableTable {
   max-width: 100%;
   overflow: scroll;
+}
+
+.filter {
+  input, textarea {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 8px;
+  }
 }
 
 ////////////////////////////////

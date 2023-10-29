@@ -22,9 +22,9 @@
     <div class="form-row">
       <label for="year">Year <sup class="danger-color">*</sup></label>
       <Field
-        :value="new Date().getFullYear()"
+        v-model="form.year"
         name="year"
-        rules="required|minLength:8"
+        rules="required"
         step="1"
         type="number"
       />

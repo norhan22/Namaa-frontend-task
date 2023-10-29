@@ -104,7 +104,7 @@
             <td>{{ actor.joinDate }}</td>
             <td>{{ actor.actorRole }}</td>
             <td v-if="!withoutActions">
-              <div class="flex-between">
+              <div class="flex-center">
                 <button
                   :disabled="selected.some((e) => e.id === actor.id)"
                   class="btn-sm"
