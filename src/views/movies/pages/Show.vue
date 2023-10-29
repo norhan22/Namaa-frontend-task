@@ -10,12 +10,19 @@
       </button>
     </div>
     <div>
-      <p><strong>Title</strong> : {{ targetMovie.title }}</p>
-      <p><strong>Year: </strong>: {{ targetMovie.year }}</p>
+      <p>
+        <strong>Title</strong> :<span class="gray-color">
+          {{ targetMovie.title }}</span
+        >
+      </p>
+      <p>
+        <strong>Year: </strong>:
+        <span class="gray-color">{{ targetMovie.year }}</span>
+      </p>
     </div>
     <p>
       <strong class="d-block">Description: </strong>
-      {{ targetMovie.description }}
+      <span class="gray-color"> {{ targetMovie.description }} </span>
     </p>
     <p class="mb-0"><strong>Actors</strong></p>
     <table border="0" cellpadding="10" cellspacing="2" width="100%">
