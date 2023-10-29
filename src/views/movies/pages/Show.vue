@@ -9,9 +9,15 @@
         Edit
       </button>
     </div>
-    <div class="">
-      <ul></ul>
+    <div>
+      <p><strong>Title</strong> : {{ targetMovie.title }}</p>
+      <p><strong>Year: </strong>: {{ targetMovie.year }}</p>
     </div>
+    <p>
+      <strong class="d-block">Description: </strong>
+      {{ targetMovie.description }}
+    </p>
+    <p class="mb-0"><strong>Actors</strong></p>
     <table border="0" cellpadding="10" cellspacing="2" width="100%">
       <thead>
         <!--  ///////////// Header ///////////// -->
@@ -23,14 +29,12 @@
         </tr>
       </thead>
       <tbody>
-        <template v-if="targetMovie.actors.length">
-          <tr v-for="(actor,i)in targetMovie.actors" :key="i">
-            <!--            <td>{{ actor.name }}</td>-->
-            <!--            <td>{{ actor.age }}</td>-->
-            <!--            <td>{{ actor.joinDate }}</td>-->
-            <!--            <td>{{ actor.actorRole }}</td>-->
-          </tr>
-        </template>
+        <tr v-for="(actor, i) in actors" :key="i">
+          <td>{{ actor.name }}</td>
+          <td>{{ actor.age }}</td>
+          <td>{{ actor.joinDate }}</td>
+          <td>{{ actor.actorRole }}</td>
+        </tr>
       </tbody>
     </table>
   </div>
@@ -46,6 +50,9 @@ export default {
     },
     targetMovie() {
       return this.movies[this.itemIndex];
+    },
+    actors() {
+      return this.targetMovie?.actors || [];
     },
   },
   methods: {},
