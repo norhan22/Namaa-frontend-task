@@ -39,6 +39,7 @@
                 placeholder="Enter Name"
                 rules="required"
                 type="text"
+                autofocus
               />
               <ErrorMessage class="error-msg" name="name" />
             </th>

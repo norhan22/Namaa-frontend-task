@@ -3,7 +3,13 @@
     <!--   Tile   -->
     <div class="form-row">
       <label for="title">Title <sup class="danger-color">*</sup></label>
-      <Field v-model="form.title" name="title" rules="required" type="text" />
+      <Field
+        v-model="form.title"
+        name="title"
+        rules="required"
+        type="text"
+        autofocus
+      />
       <ErrorMessage class="error-msg" name="title" />
     </div>
     <!--   Description   -->

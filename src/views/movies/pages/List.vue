@@ -12,7 +12,7 @@
         /////////////////////////-->
     <div class="filter">
       <h4>Filter By</h4>
-      <form class="flex">
+      <form class="flex" @submit.prevent="searchByFilters">
         <div class="form-row">
           <input
             v-model="search.title"
@@ -40,6 +40,18 @@
             placeholder="Number of Actors"
             type="number"
           />
+        </div>
+        <div class="flex">
+          <button
+            type="submit"
+            class="btn-sm"
+            :disabled="!Object.values(search).some(Boolean)"
+          >
+            search
+          </button>
+          <button type="reset" class="btn-sm" @click="resetSearch">
+            clear
+          </button>
         </div>
       </form>
     </div>
@@ -110,6 +122,32 @@ export default {
   methods: {
     removeMovie(i) {
       this.removeRow(this.movies, i, "storeMovie");
+    },
+    searchByFilters() {
+      const { title, year, actorsCount } = this.search;
+
+      this.shownData = this.movies.filter((v) => {
+        const checkTitle = v.title.toLowerCase().includes(title.toLowerCase());
+        const checkActorCount = v.actors.length === actorsCount;
+        const checkYear = v.year === year;
+
+        if (title || actorsCount || year)
+          return checkTitle || checkYear || checkActorCount;
+        if (title && year) return checkTitle && checkYear;
+        if (title && actorsCount) return checkTitle && checkActorCount;
+        if (year && actorsCount) return checkYear && checkActorCount;
+        if (title && actorsCount && year)
+          return checkTitle && checkYear && checkActorCount;
+      });
+    },
+
+    resetSearch() {
+      this.search = {
+        title: "",
+        year: "",
+        actorsCount: null,
+      };
+      this.shownData = Array.from(this.movies);
     },
   },
 };

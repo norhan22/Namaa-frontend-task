@@ -124,8 +124,11 @@ button {
   }
 }
 
+.filter .form-row{
+  margin-bottom: 11px;
+}
 .flex .form-row {
-  @media (min-width: 770px) {
+  @media (min-width: 450px) {
     margin-right: 20px;
   }
 }
