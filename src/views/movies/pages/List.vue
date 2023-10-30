@@ -127,17 +127,22 @@ export default {
       const { title, year, actorsCount } = this.search;
 
       this.shownData = this.movies.filter((v) => {
-        const checkTitle = v.title.toLowerCase().includes(title.toLowerCase());
-        const checkActorCount = v.actors.length === actorsCount;
-        const checkYear = v.year === year;
+        const checkTitle = title
+          ? v.title.toLowerCase().includes(title.toLowerCase())
+          : false;
+        const checkActorCount = actorsCount
+          ? v.actors.length === actorsCount
+          : false;
+        const checkYear = year ? v.year === year : false;
 
-        if (title || actorsCount || year)
-          return checkTitle || checkYear || checkActorCount;
         if (title && year) return checkTitle && checkYear;
         if (title && actorsCount) return checkTitle && checkActorCount;
         if (year && actorsCount) return checkYear && checkActorCount;
         if (title && actorsCount && year)
           return checkTitle && checkYear && checkActorCount;
+        if (title || actorsCount || year) {
+          return checkTitle || checkYear || checkActorCount;
+        }
       });
     },
 
