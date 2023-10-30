@@ -125,20 +125,34 @@ export default {
     },
     searchByFilters() {
       const { title, year, actorsCount } = this.search;
+      const checkTitle = (v) =>
+        v.title.toLowerCase().includes(title.toLowerCase());
+      const checkActorCount = (v) => v.actors.length === actorsCount;
+      const checkYear = (v) => v.year === year;
 
-      this.shownData = this.movies.filter((v) => {
-        const checkTitle = v.title.toLowerCase().includes(title.toLowerCase());
-        const checkActorCount = v.actors.length === actorsCount;
-        const checkYear = v.year === year;
-
-        if (title || actorsCount || year)
-          return checkTitle || checkYear || checkActorCount;
-        if (title && year) return checkTitle && checkYear;
-        if (title && actorsCount) return checkTitle && checkActorCount;
-        if (year && actorsCount) return checkYear && checkActorCount;
-        if (title && actorsCount && year)
-          return checkTitle && checkYear && checkActorCount;
-      });
+      if (title && actorsCount && year) {
+        alert("all");
+        this.shownData = this.movies.filter(
+          (v) => checkTitle(v) && checkActorCount(v) && checkYear(v)
+        );
+      } else if (title && year) {
+        this.shownData = this.movies.filter(
+          (v) => checkTitle(v) && checkYear(v)
+        );
+      } else if (title && actorsCount) {
+        this.shownData = this.movies.filter(
+          (v) => checkTitle(v) && checkActorCount(v)
+        );
+      } else if (year && actorsCount) {
+        this.shownData = this.movies.filter(
+          (v) => checkYear(v) && checkActorCount(v)
+        );
+      } else {
+        alert("one");
+        this.shownData = this.movies.filter(
+          (v) => checkTitle(v) || checkActorCount(v) || checkYear(v)
+        );
+      }
     },
 
     resetSearch() {
