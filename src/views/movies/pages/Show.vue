@@ -11,12 +11,11 @@
     </div>
     <div>
       <p>
-        <strong>Title</strong> :<span class="gray-color">
-          {{ targetMovie.title }}</span
-        >
+        <strong>Title: </strong
+        ><span class="gray-color"> {{ targetMovie.title }}</span>
       </p>
       <p>
-        <strong>Year: </strong>:
+        <strong>Year: </strong>
         <span class="gray-color">{{ targetMovie.year }}</span>
       </p>
     </div>

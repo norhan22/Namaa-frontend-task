@@ -1,4 +1,11 @@
-# movie-app
+# CRUD Movie App Based On Vue 3
+### Setup the Project Local Instructions: 
+- Install Node Last Version 
+- Install vue-cli :  ``` npm install -g @vue/cli ```
+- Install the packages : ``` npm i```
+- Serve the project :  ```npm run serve```
+
+
 
 ## Project setup
 ```

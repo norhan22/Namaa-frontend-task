@@ -43,13 +43,13 @@
         </div>
         <div class="flex">
           <button
-            type="submit"
-            class="btn-sm"
             :disabled="!Object.values(search).some(Boolean)"
+            class="btn-sm"
+            type="submit"
           >
             search
           </button>
-          <button type="reset" class="btn-sm" @click="resetSearch">
+          <button class="btn-sm" type="reset" @click="resetSearch">
             clear
           </button>
         </div>
