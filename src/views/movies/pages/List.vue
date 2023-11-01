@@ -131,7 +131,6 @@ export default {
       const checkYear = (v) => v.year === year;
 
       if (title && actorsCount && year) {
-        alert("all");
         this.shownData = this.movies.filter(
           (v) => checkTitle(v) && checkActorCount(v) && checkYear(v)
         );
