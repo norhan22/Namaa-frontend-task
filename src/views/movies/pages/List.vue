@@ -148,7 +148,6 @@ export default {
           (v) => checkYear(v) && checkActorCount(v)
         );
       } else {
-        alert("one");
         this.shownData = this.movies.filter(
           (v) => checkTitle(v) || checkActorCount(v) || checkYear(v)
         );
